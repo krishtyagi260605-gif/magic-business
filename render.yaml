@@ -1,0 +1,15 @@
+# Render Blueprint Specification
+# To deploy: Go to Render Dashboard -> Blueprints -> New Blueprint Instance -> Connect this repo.
+services:
+  - type: web
+    name: magic-business-platform
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: GEMINI_API_KEY
+        sync: false # User will input this in the Render Dashboard
+      - key: GROQ_API_KEY
+        sync: false # User will input this in the Render Dashboard
