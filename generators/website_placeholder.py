@@ -60,7 +60,8 @@ def generate_website_placeholder(
         """
         
     tagline_h2 = f"<h2 class='tagline'>{tagline}</h2>" if tagline else ""
-    address_p = f"<p class='contact-detail'><strong>📍 Address:</strong> {address.replace('\n', ', ')}</p>" if address else ""
+    address_clean = address.replace('\n', ', ') if address else ""
+    address_p = f"<p class='contact-detail'><strong>📍 Address:</strong> {address_clean}</p>" if address else ""
     website_p = f"<p class='contact-detail'><strong>🌐 Website:</strong> <a href='https://{website}' target='_blank'>{website}</a></p>" if website else ""
     
     # Auto-generate initials logo for header
